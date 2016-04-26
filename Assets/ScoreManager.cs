@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour {
 
-    public enum POINTS_TYPES {
+    public enum PointsTypes {
         GOOD = 20,
         BAD = -10
     };
@@ -15,11 +15,15 @@ public class ScoreManager : MonoBehaviour {
         scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
     }
 	
-	void Update () {
+    void Update () {
         scoreText.text = "SCORE: " + score;
-	}
+    }
 
-    public void ApplyPoints(POINTS_TYPES points) {
+    public void ResetPoints() {
+        score = 0;
+    }
+
+    public void ApplyPoints(PointsTypes points) {
         score += (long)points;
     }
 }
