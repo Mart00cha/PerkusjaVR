@@ -11,8 +11,9 @@ public class SocketClient : MonoBehaviour {
 	// Use this for initialization
 
 	//private const int listenPort = 5005;
-	public GameObject hero;
-	private float xPos = 10.0f;
+	//public GameObject hero;
+    public StickController stickController;
+	private float xPos = 2.0f;
 
 	Thread receiveThread;
 	UdpClient client;
@@ -21,10 +22,11 @@ public class SocketClient : MonoBehaviour {
 	//info
 
 	public string lastReceivedUDPPacket = "";
-	public string allReceivedUDPPackets = "";
+	//public string allReceivedUDPPackets = "";
 
 	void Start () {
 		init();
+	    //stickController = GetComponent<StickController>();
 	}
 
 	void OnGUI(){
@@ -67,11 +69,11 @@ public class SocketClient : MonoBehaviour {
 				byte[] data = client.Receive(ref anyIP);
 
 				string text = Encoding.UTF8.GetString(data);
-				print (">> " + text);
+				//print (">> " + text);
 				lastReceivedUDPPacket=text;
-				allReceivedUDPPackets=allReceivedUDPPackets+text;
+				//allReceivedUDPPackets=allReceivedUDPPackets+text;
 				xPos = float.Parse(text);
-				xPos *= 0.021818f;
+				//xPos *= 0.021818f;
 			}catch(Exception e){
 				print (e.ToString());
 			}
@@ -79,13 +81,14 @@ public class SocketClient : MonoBehaviour {
 	}
 
 	public string getLatestUDPPacket(){
-		allReceivedUDPPackets = "";
+		//allReceivedUDPPackets = "";
 		return lastReceivedUDPPacket;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		hero.transform.position = new Vector3(xPos*100.5f, -0.55f, -1.2f);
+		//hero.transform.position = new Vector3(xPos*100.5f, -0.55f, -1.2f);
+        stickController.NewPosition(xPos * 3 - 1.5f, -0.55f, -1.2f);
 	}
 
 	void OnApplicationQuit(){
