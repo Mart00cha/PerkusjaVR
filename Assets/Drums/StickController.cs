@@ -4,6 +4,8 @@ using System.Collections;
 
 public class StickController : MonoBehaviour {
 
+    public float delay=2;
+
     private Rigidbody rb;
     private Vector3 pos2;
 
@@ -20,7 +22,7 @@ public class StickController : MonoBehaviour {
 
     void FixedUpdate()
     {
-        Vector3 spd = (pos2 - rb.position) / Time.deltaTime/2;
+        Vector3 spd = (pos2 - rb.position) / Time.deltaTime/delay;
         rb.velocity = spd;
     }
 
