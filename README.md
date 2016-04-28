@@ -19,3 +19,6 @@ Uruchamianie na telefonie:
 podłącz telefon przed USB (trzeba miec włączone na telefonie debugowanie usb, upewnijcie sie tez, że macie drivery do telefonu)
 In Unity, go to File > Build Settings -> Android -> Player Settings -> under Resolution and Presentation, change “Default Orientation” to “Landscape Left” -> Other settings -> apps name: com.agh.PerkusjaVR -> Build and run 
 po instalacji aplikacji cardboard powinno działac
+
+
+Vuforia wymaga pobrania i zaimportowania pobranej paczki w Unity. Pobrać ją należy stąd: https://developer.vuforia.com/downloads/sdk . Niestety wymagane jest zalogowanie się.
