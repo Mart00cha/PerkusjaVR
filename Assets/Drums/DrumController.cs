@@ -30,14 +30,15 @@ public class DrumController : MonoBehaviour
 
     }
 
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    print("trigger enter");
-    //    MakeSound();
-    //}
+    void OnTriggerEnter(Collider other)
+    {
+        print("trigger enter");
+        MakeSound();
+    }
 
     void OnCollisionEnter(Collision col)
     {
+        print("collision enter");
         MakeSound();
     }
  
