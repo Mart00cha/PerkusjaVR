@@ -21,7 +21,9 @@ public class ButtonSlider : MonoBehaviour {
 	void HideObject() {
 		alpha -= (fadeOutSpeed*Time.deltaTime);
 		if (alpha < 0) {
-			this.gameObject.SetActive (false);			
+			this.gameObject.SetActive (false);
+			ScoreManager manager = GameObject.Find("Score").GetComponent<ScoreManager> ();
+			manager.ApplyPoints (ScoreManager.POINTS_TYPES.GOOD);
 		} else {
 			Color temp = this.gameObject.GetComponent<Renderer> ().material.color;
 			temp.a = alpha;
