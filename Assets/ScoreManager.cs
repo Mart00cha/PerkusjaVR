@@ -12,6 +12,7 @@ public class ScoreManager : MonoBehaviour {
 	private long score = 0;
 
 	void Start () {
+		Application.targetFrameRate = 60;
 		scoreText = GameObject.Find("Score").GetComponent<Text>();
 	}
 
