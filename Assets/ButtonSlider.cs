@@ -12,9 +12,11 @@ public class ButtonSlider : MonoBehaviour {
 	void Update () {
 		if (this.gameObject.activeSelf) {
 			Vector3 poz = transform.position;
-
+			Debug.Log ("ID: " + this.GetInstanceID() + " position: " + transform.position + " rotation:  "+transform.rotation+" parent: "+transform.parent.GetInstanceID() +
+				" poz: " + transform.parent.position + " rotation: " + transform.parent.transform.rotation+" name: "+transform.parent.name);
+			
 			transform.Translate (new Vector3 (0, 0, -1) * Time.deltaTime * speed);
-			if (poz.z < 0.5f) {
+			if (transform.localPosition.z < -4f) {
 				HideObject ();
 			}
 		}

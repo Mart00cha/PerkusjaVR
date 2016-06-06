@@ -7,12 +7,11 @@ public class HitManager : MonoBehaviour {
 
 	void Start() {
 		scoreManager = GameObject.Find("Score").GetComponent<ScoreManager> ();
-		buttonSlider = GameObject.Find("MiddleButton").GetComponent<ButtonSlider> ();
 	}
 
 	void HitEvent() {
-		if (buttonSlider.HitCorrect ()) {
-			scoreManager.ApplyPoints (ScoreManager.POINTS_TYPES.GOOD);
-		}
+//		if (buttonSlider.HitCorrect ()) {
+//			scoreManager.ApplyPoints (ScoreManager.POINTS_TYPES.GOOD);
+//		}
 	}
 }
