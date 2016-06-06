@@ -48,7 +48,7 @@ public class SongLoader : MonoBehaviour {
 	void AddButton(int buttonId, int secondOfPlaying) {
 		GameObject button = (GameObject) Instantiate(Resources.Load("Prefabs/MiddleButton"));
 		button.SetActive (false);
-		GameObject plane = GameObject.Find ("Plane");
+		GameObject plane = GameObject.Find ("ButtonSlope");
 
 		button.transform.parent = plane.transform;
 		button.transform.localRotation = new Quaternion (0, 0, 0, 1);
