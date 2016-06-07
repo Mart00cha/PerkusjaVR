@@ -24,4 +24,8 @@ public class ScoreManager : MonoBehaviour {
 	public void ApplyPoints(POINTS_TYPES points) {
 		score += (long)points;
 	}
+
+    public void Reset() {
+        score = 0;
+    }
 }

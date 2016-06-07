@@ -42,7 +42,8 @@ public class SongLoader : MonoBehaviour {
 	}
 
 	void AddButton(int buttonId, int secondOfPlaying) {
-		GameObject button = (GameObject) Instantiate(Resources.Load("Prefabs/MiddleButton"), new Vector3(0,0,0), Quaternion.identity);
+        /*
+        GameObject button = (GameObject) Instantiate(Resources.Load("Prefabs/MiddleButton"), new Vector3(0,0,0), Quaternion.identity);
 		GameObject plane = GameObject.Find("TrackButton").GetComponent<TrackButton> ();
 		button.transform.parent = 
 		button.SetActive (false);
@@ -50,5 +51,6 @@ public class SongLoader : MonoBehaviour {
 			buttons [secondOfPlaying] = new ArrayList ();
 		}
 		buttons[secondOfPlaying].Add(button);
-	}
+	    */
+    }
 }
