@@ -1,6 +1,2 @@
-<<<<<<< abe9709e8c938ac434f2a44c7b48bb7d85c87867
 m_EditorVersion: 5.3.5f1
-=======
-m_EditorVersion: 5.3.4f1
->>>>>>> Falling notes added
 m_StandardAssetsVersion: 0
