@@ -14,11 +14,12 @@ public class SongLoader : MonoBehaviour {
 		TOP_RIGHT = 4
 	};
 
+	int endOfSong = -1;
+
 	Dictionary<int, IList> buttons;
 
 	void Start () {
-		buttons = new Dictionary<int, IList>();
-		LoadButtonsFromFile ("Assets/Resources/Songs/song.txt");
+		// nothing
 	}
 	
 	public IList GetButtons(int time) {
@@ -31,8 +32,18 @@ public class SongLoader : MonoBehaviour {
 		}
 	}
 
+	public void PlaySong(string songPath) {
+		buttons = new Dictionary<int, IList>();
+		LoadButtonsFromFile (songPath);
+	}
+
+	public bool SongHasEnded(int askedSecond) {
+		return askedSecond > endOfSong;
+	}
+
 	void LoadButtonsFromFile(string filename) {
 		StreamReader inputStream = new StreamReader(filename);
+		int lastSecond = 0;
 		while(!inputStream.EndOfStream) {
 			string line = inputStream.ReadLine( );
 
@@ -40,8 +51,9 @@ public class SongLoader : MonoBehaviour {
 			int buttonId = int.Parse(entries[0]);
 			int secondOfPlaying = int.Parse(entries[1]);
 			AddButton(buttonId, secondOfPlaying);
+			lastSecond = secondOfPlaying;
 		}
-
+		endOfSong = lastSecond;
 		inputStream.Close( );  
 	}
 
