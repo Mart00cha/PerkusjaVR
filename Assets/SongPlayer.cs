@@ -10,7 +10,7 @@ public class SongPlayer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		songLoader = GameObject.Find("SongManager").GetComponent<SongLoader> ();
-		PlaySong ("Assets/Resources/Songs/song.txt");
+		//PlaySong ("Assets/Resources/Songs/song.txt");
 	}
 	
 	// Update is called once per frame
@@ -29,7 +29,7 @@ public class SongPlayer : MonoBehaviour {
 		}
 	}
 
-	void PlaySong(string songPath) {
+	public void PlaySong(string songPath) {
 		playingSong = songPath;
 		songLoader.PlaySong (playingSong);
 		elapsedTime = 0f;
