@@ -27,7 +27,6 @@ public class SongLoader : MonoBehaviour {
 			return buttons[time];
 		}
 		else {
-			Debug.Log ("No entry for: "+time);
 			return new ArrayList();
 		}
 	}
@@ -62,6 +61,7 @@ public class SongLoader : MonoBehaviour {
 		button.SetActive (false);
 		GameObject plane = GameObject.Find ("ButtonSlope");
 
+		button.name = "" + buttonId;
 		button.transform.parent = plane.transform;
 		button.transform.localRotation = new Quaternion (0, 0, 0, 1);
 

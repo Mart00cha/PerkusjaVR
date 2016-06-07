@@ -6,11 +6,10 @@ public class SongPlayer : MonoBehaviour {
 	SongLoader songLoader;
 	float elapsedTime = 0f;
 	string playingSong = null;
-
+	private IList currentButtons = null;
 	// Use this for initialization
 	void Start () {
 		songLoader = GameObject.Find("SongManager").GetComponent<SongLoader> ();
-		//PlaySong ("Assets/Resources/Songs/song.txt");
 	}
 	
 	// Update is called once per frame
@@ -18,9 +17,8 @@ public class SongPlayer : MonoBehaviour {
 		if (playingSong != null) {
 			elapsedTime += Time.deltaTime;
 			int second = (int)Math.Round (elapsedTime);
-			Debug.Log ("Asking for " + second);
-			IList buttons = songLoader.GetButtons (second);
-			foreach(GameObject button in buttons) {
+			currentButtons = songLoader.GetButtons (second);
+			foreach(GameObject button in currentButtons) {
 				button.SetActive(true);			
 			}
 			if (songLoader.SongHasEnded (second)) {
@@ -33,5 +31,15 @@ public class SongPlayer : MonoBehaviour {
 		playingSong = songPath;
 		songLoader.PlaySong (playingSong);
 		elapsedTime = 0f;
+	}
+
+	public void StopSong() {
+		if (playingSong != null) {
+			playingSong = null;
+		}
+	}
+
+	public IList CurrentButtons() {
+		return currentButtons;
 	}
 }

@@ -5,13 +5,14 @@ public class DrumController : MonoBehaviour
 {
     public string inputName = "Jump";
 
+	private HitManager hitManager;
     private Rigidbody rigidbody;
     private AudioSource audioSource;
     
 
 	// Use this for initialization
 	void Start () {
-
+		hitManager = GameObject.Find("HitManager").GetComponent<HitManager> ();
         rigidbody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
 
@@ -42,8 +43,8 @@ public class DrumController : MonoBehaviour
         MakeSound();
     }
  
-    void MakeSound()
-    {
+    void MakeSound() {
+		hitManager.HitEvent (name);
         audioSource.Play();
     }
 
