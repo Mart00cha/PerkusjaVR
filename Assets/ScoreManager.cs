@@ -8,13 +8,13 @@ public class ScoreManager : MonoBehaviour {
 		BAD = -10
 	};
 
-	Text scoreText;
+	TextMesh scoreText;
 	private long score = 0;
 
 	void Start () {
 		Application.targetFrameRate = 60;
 		Screen.SetResolution(640, 480, true);
-		scoreText = GameObject.Find("Score").GetComponent<Text>();
+		scoreText = GameObject.Find("Score").GetComponent<TextMesh>();
 	}
 
 	void Update () {
