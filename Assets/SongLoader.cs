@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using System.IO;  
+using System.IO;
+using UnityEngine.UI;  
 
 
 public class SongLoader : MonoBehaviour {
@@ -41,19 +42,20 @@ public class SongLoader : MonoBehaviour {
 	}
 
 	void LoadButtonsFromFile(string filename) {
-		StreamReader inputStream = new StreamReader(filename);
+		TextAsset song = Resources.Load ("Songs/song") as TextAsset;
 		int lastSecond = 0;
-		while(!inputStream.EndOfStream) {
-			string line = inputStream.ReadLine( );
 
-			string[] entries = line.Split(' ');
-			int buttonId = int.Parse(entries[0]);
-			int secondOfPlaying = int.Parse(entries[1]);
-			AddButton(buttonId, secondOfPlaying);
-			lastSecond = secondOfPlaying;
+		foreach(string line in song.text.Split ('\n')) {
+			if(line.Length > 0){
+				Debug.Log ("Line: "  + line);
+				string[] entries = line.Split(' ');
+				int buttonId = int.Parse(entries[0]);
+				int secondOfPlaying = int.Parse(entries[1]);
+				AddButton(buttonId, secondOfPlaying);
+				lastSecond = secondOfPlaying;
+			}
 		}
 		endOfSong = lastSecond;
-		inputStream.Close( );  
 	}
 
 	void AddButton(int buttonId, int secondOfPlaying) {

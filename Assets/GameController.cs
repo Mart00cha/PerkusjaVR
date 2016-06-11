@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour {
 
     public void OnSong()
     {
-        print("loooool");
+		GameObject.Find("Song").GetComponent<TextMesh>().text = "changed";
         player.StopSong();
         scoreManager.Reset();
         player.PlaySong("Assets/Resources/Songs/song.txt");
