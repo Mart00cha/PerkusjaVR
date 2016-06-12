@@ -25,6 +25,10 @@ public class ScoreManager : MonoBehaviour {
 		score += (long)points;
 	}
 
+	public long GetScore(){
+		return score;
+	}
+
     public void Reset()
     {
         score = 0;

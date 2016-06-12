@@ -11,7 +11,6 @@ public class HitManager : MonoBehaviour {
 	void Start() {
 		scoreManager = GameObject.Find("Score").GetComponent<ScoreManager> ();
 		songPlayer = GameObject.Find("SongManager").GetComponent<SongPlayer> ();
-	
 
 		drumsToButtons = new Dictionary<string, string>();
 		drumsToButtons ["Drum0"] = "0";
