@@ -42,7 +42,7 @@ public class SongLoader : MonoBehaviour {
 	}
 
 	void LoadButtonsFromFile(string filename) {
-		TextAsset song = Resources.Load ("Songs/song") as TextAsset;
+		TextAsset song = Resources.Load ("Songs/" + filename) as TextAsset;
 		int lastSecond = 0;
 
 		foreach(string line in song.text.Split ('\n')) {

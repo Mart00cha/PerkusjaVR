@@ -5,22 +5,29 @@ public class GameController : MonoBehaviour {
 
     SongPlayer player;
     ScoreManager scoreManager;
+    string[] songs = {"song1", "song2", "song3"};
     
 	void Start () {
 	    player = GameObject.Find("SongManager").GetComponent<SongPlayer>();
         scoreManager = GameObject.Find("Score").GetComponent<ScoreManager>();
     }
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	void Update () { }
 
-    public void OnSong()
+    void OnSong(int songId)
     {
-		GameObject.Find("Song").GetComponent<TextMesh>().text = "changed";
         player.StopSong();
         scoreManager.Reset();
-        player.PlaySong("Assets/Resources/Songs/song.txt");
+        player.PlaySong(songs[songId]);
+    }
+
+    public void OnSong1() { OnSong(0); }
+    public void OnSong2() { OnSong(1); }
+    public void OnSong3() { OnSong(2); }
+
+    public void OnFreestyle()
+    {
+        player.StopSong();
+        scoreManager.Reset();
     }
 }
