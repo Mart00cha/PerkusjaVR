@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System;
 
@@ -31,16 +31,13 @@ public class SongPlayer : MonoBehaviour {
 		playingSong = songPath;
 		songLoader.PlaySong (playingSong);
 		elapsedTime = 0f;
-        GameObject.Find("BottomBorder").SetActive(true);
-    }
+	}
 
 	public void StopSong() {
 		if (playingSong != null) {
 			playingSong = null;
 		}
-        GameObject.Find("BottomBorder").SetActive(false);
-
-    }
+	}
 
 	public IList CurrentButtons() {
 		return currentButtons;
