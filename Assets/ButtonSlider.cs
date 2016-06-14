@@ -34,6 +34,6 @@ public class ButtonSlider : MonoBehaviour {
 		if (Math.Abs (transform.localPosition.z - optimumHitZ) < epsilon) {
 			return true;
 		}
-		return true;
+		return false;
 	}
 }
